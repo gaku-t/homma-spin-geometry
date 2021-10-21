@@ -1,0 +1,25 @@
+\documentclass{amsart}
+
+\usepackage{amsmath, amssymb}
+
+\theoremstyle{definition}
+\newtheorem{ans}{}
+\numberwithin{ans}{section}
+
+\newcommand{\fakesection}[1]{%
+  \par\refstepcounter{section}% Increase section counter
+  \sectionmark{#1}% Add section mark (header)
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+  % Add more content here, if needed.
+}
+
+
+\begin{document}
+
+\fakesection{第1章 クリフォード代数}
+
+\begin{ans}
+  test
+\end{ans}
+
+\end{document}

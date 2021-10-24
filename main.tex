@@ -1,6 +1,7 @@
-\documentclass{amsart}
+\documentclass[dvipdfmx]{amsart}
 
 \usepackage{amsmath, amssymb}
+\usepackage{tikz-cd}
 
 \theoremstyle{definition}
 \newtheorem{ans}{}
@@ -12,6 +13,8 @@
   \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
   % Add more content here, if needed.
 }
+
+\newcommand{\Hom}[2]{\mathrm{Hom}(#1, #2)}
 
 
 \begin{document}
@@ -35,6 +38,26 @@
   = c_1F(v_1) \otimes G(w) + c_2F(v_2) \otimes G(w)
   = c_1F \times G(v_1, w) + c_2F \times G(v_2, w)
   $. よって第1引数について線形である. 第2引数についての線形性も同様に示せる.
+\end{ans}
+
+\begin{ans}
+  写像$B: V^\ast \times W \rightarrow \Hom{V}{W}$を,
+  $(v^\ast, w) \mapsto (\varphi: v \mapsto v^\ast(v)w)$と定義する.
+  これは双線形なので, 次の図式を可換とするような線形写像$\beta$が存在する.
+  \[
+    \begin{tikzcd}
+      V^\ast \times W \ar[r, "\otimes"] \arrow[rd, "B"'] & V^\ast \otimes W \ar[d, "\beta"] \\
+      & \Hom{V}{W}
+    \end{tikzcd}
+  \]
+  $\beta$が同型であることを示したいが,
+  $V^\ast \otimes W$と$\Hom{V}{W}$はともに次元が$\dim V \cdot \dim W$なので,
+  $\beta$が全射であることを見ればよい.
+  そのためには, $V$の基底$\{e_1,.., e_n\}$と$W$の基底$\{f_1,..., f_m\}$を適当にとり,
+  $1 \le \forall i \le n$, $1 \le \forall j \le m$について$\varphi_{ij}(e_k) = \delta_{ik}f_j\ (k = 1,..., n)$
+  をみたすような$\varphi_{ij}$ ($\Hom{V}{W}$の基底) が$\beta$の像に入っていることをみればよい.
+  このことは, $V^\ast$の双対基底$\{e^\ast_1,..., e^\ast_n\}$について
+  $B(e^\ast_i, f_j)(e_k) = e^\ast_i(e_k)f_j = \delta_{ik}f_j = \varphi_{ij}(e_k)$であることから分かる.
 \end{ans}
 
 \end{document}

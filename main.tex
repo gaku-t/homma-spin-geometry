@@ -60,4 +60,32 @@
   $B(e^\ast_i, f_j)(e_k) = e^\ast_i(e_k)f_j = \delta_{ik}f_j = \varphi_{ij}(e_k)$であることから分かる.
 \end{ans}
 
+\begin{ans}
+  (1) $(\bigwedge^p(V))^\ast \ni \alpha$に対して,
+  $\alpha \circ \pi \circ \otimes^p$は$p$次交代形式である.
+  逆に, $p$次交代形式$A$に対して, $\alpha \in (\bigwedge^p(V))^\ast$を,
+  $\alpha(v_1 \wedge \cdots \wedge v_p) = A(v_1,... v_p)$を線形に拡張することで定義できる.
+  この$\alpha$がwell-definedであることを確かめる必要があるが,
+  まず$A$が$p$次線形形式であることから, $\bigotimes^pV$上のある線形形式$\beta$により
+  $\beta(v_1 \otimes \cdots \otimes v_p) = A(v_1,... v_p)$と書ける.
+  $A$の交代性から, $\beta$は$I(V) \cap \bigotimes^pV$上で$0$である. したがって, $\beta$は$\alpha$を誘導する.
+  このように定義した$\alpha$に対して$\alpha \circ \pi \circ \otimes^p = A$が成り立つから,
+  この対応により$(\bigwedge^p(V))^\ast$と$p$次交代形式全体を同一視できる.\\
+  (2) 前小問で見たことと同様であるが, $A$は$p$次線形写像なので,
+  線形写像$\beta: \bigotimes^pV \rightarrow U$で$A = \beta \circ \otimes^p$を満たすものがただ$1$つ存在する.
+  $A$の交代性から$\beta$は$I(V) \cap \bigotimes^pV$上で$0$なので,
+  $\alpha: \bigwedge^pV \rightarrow U$を誘導し, $\alpha \circ \wedge^p = A$である.
+  $\beta$の一意性から, これを満たす$\alpha$は一意である.
+  \[
+    \begin{tikzcd}
+      V \times \cdots \times V \ar[r, "\otimes^p"] \ar[rd, "A"'] &\bigotimes^pV \ar[d, "\beta"'] \ar[r, "\pi"] & \bigwedge^pV \ar[ld, dashed, "\alpha"]\\
+      & U &
+    \end{tikzcd}
+  \]
+  \\
+  (3) テンソル代数の普遍性から, 代数準同型$F_T: T^\ast(V) \rightarrow A$で$F_T|_V = f$となるものがただ$1$つ存在する.
+  $F_T$はイデアル$I(V)$上で$0$なので, 準同型$F: \bigwedge^\ast(V) \rightarrow A$を誘導する.
+  一意性は, $F$の一意性は, $F_T$の一意性からしたがう.
+\end{ans}
+
 \end{document}

@@ -2,10 +2,17 @@
 
 \usepackage{amsmath, amssymb}
 \usepackage{tikz-cd}
+\usepackage{framed}
 
 \theoremstyle{definition}
 \newtheorem{ans}{}
 \numberwithin{ans}{section}
+
+\newtheorem{mynote}{行間メモ}
+\numberwithin{mynote}{section}
+\newenvironment{note}
+  {\begin{leftbar}\begin{mynote}}
+  {\end{mynote}\end{leftbar}}
 
 \newcommand{\fakesection}[1]{%
   \par\refstepcounter{section}% Increase section counter
@@ -13,6 +20,8 @@
   \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
   % Add more content here, if needed.
 }
+
+\DeclareMathOperator*{\sgn}{sgn}
 
 \newcommand{\Hom}[2]{\mathrm{Hom}(#1, #2)}
 
@@ -104,6 +113,51 @@
   がともに正の向きに入っているので, $\psi = \alpha \phi\ (\alpha > 0)$と書ける.
   $1 = \langle \psi, \psi \rangle = \langle \alpha \phi, \alpha \phi \rangle = \alpha^2$
   より$\alpha = 1$なので, $\phi = \psi$.
+\end{ans}
+
+\begin{note}
+  定義1.6がwell-definedであるかどうかは次の問で確かめることになるが,
+  今のところは正規直交基底$e_1,...,e_n$を$1$つ固定していると考えればよい.
+  この基底について定義1.6の等式が成り立っているとき,
+  基底の任意の置換$e_{\sigma(1)},...,e_{\sigma(n)}$についても
+  等式が成り立っているとしても矛盾しないので、それも定義のうちに入れておく.
+  すると、$\bigwedge^\ast(V)$の基底での$\ast$の値が与えられたことになるので,
+  $\ast$を線形に$\bigwedge^\ast(V)$上に拡張できる.
+\end{note}
+
+\begin{ans}
+  \underline{\textbf{前半}}: $e_{p+1},...,e_n,e_1,...,e_p$の符号は,
+  $e_1,...,e_n$の符号に$(-1)^{p(n-p)}$を掛けたものである.
+  (バブルソートを行なっていると考えれば, $1,..,p$を昇順の位置に移動させるのにそれぞれ$n-p$回の互換を行なうことになる.)
+  よって, $\ast^2(e_1 \wedge \cdots \wedge e_p)
+  = \ast(\pm e_{p+1} \wedge \cdots \wedge e_n)
+  = \pm \cdot \pm (-1)^{p(n-p)}e_1 \wedge \cdots \wedge e_p
+  = (-1)^{p(n-p)}e_1 \wedge \cdots \wedge e_p
+  $. 他の基底についても同様であるが, 置換の符号が$2$回現れてキャンセルすることになる.\\
+  \underline{\textbf{後半}}: $\ast$の定義に用いた$V$の正規直交基底を$e_1,...,e_n$とする.
+  ウェッジ積, 内積, および$\ast$の (双) 線形性から,
+  $\phi = e_{i_1} \wedge \cdots \wedge e_{i_p}\ (i_1 < \cdots < i_p)$,
+  $\psi = e_{j_1} \wedge \cdots \wedge e_{j_p}\ (j_1 < \cdots < j_p)$
+  の場合にのみ等式を示せばよい.
+  これらについて等式が成り立つことは, $\phi \neq \psi$の場合は, すべて$0$となるので明らかであろう.
+  そこで$\phi = \psi$の場合を考える.
+  適当な置換$\sigma$によって$\phi = e_{\sigma(1)} \wedge \cdots \wedge e_{\sigma(p)}$と書けるとする.
+  $\phi \wedge \ast \phi
+  = (e_{\sigma(1)} \wedge \cdots \wedge e_{\sigma(p)}) \wedge (\pm \sgn \sigma e_{\sigma(p + 1)} \wedge \cdots \wedge e_{\sigma(n)})
+  = \pm \sgn \sigma e_{\sigma(1)} \wedge \cdots \wedge e_{\sigma(n)}
+  = \pm e_1 \wedge \cdots \wedge e_n
+  = \mathrm{vol}
+  $. ただしここで$\pm$は基底$e_1,...,e_n$の正負に対応している. このことから, 示すべきすべての等式が成り立つことは明らかであろう.
+  さて, ここで得られた関係式から, $\ast$がwell-definedであることを確認しておく.
+  別の基底から$\ast^\prime$を定義したとすると,
+  任意の$\phi \in \bigwedge^p(V), \psi \in \bigwedge^{n-p}(V)$に対して,
+  $\langle \phi, \ast \psi \rangle \mathrm{vol}
+  = \phi \wedge \ast^2 \psi
+  = (-1)^{p(n-p)}\phi \wedge \psi
+  = \phi \wedge {\ast^\prime}^2 \psi
+  = \langle \phi, \ast^\prime \psi \rangle \mathrm{vol}$.
+  したがって$\langle \phi, \ast \psi \rangle = \langle \phi, \ast^\prime \psi \rangle$
+  であるから, $\ast = \ast^\prime$である.
 \end{ans}
 
 \end{document}

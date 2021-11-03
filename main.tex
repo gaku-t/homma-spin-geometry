@@ -160,4 +160,54 @@
   であるから, $\ast = \ast^\prime$である.
 \end{ans}
 
+\begin{note}
+  命題1.8の補足. $V$に正規直交基底$e_1,..,e_n$が与えられているとき,
+  線形写像$f$が関係式を満たすことを確認するには,
+  $f(e_i)f(e_j) + f(e_j)f(e_i) = 2\delta_{ij}$
+  であることを確かめればよい.
+  逆にこれが成り立つように$f(e_i)$の値を定めておけば, それを$V$上に線形に拡張した
+  $f: V \rightarrow A$が関係式を満たす.
+  このことは例1.5, 例1.6では明示されていないが, 後の補題1.1の証明に用いられている.
+\end{note}
+
+\begin{note}
+  例1.5について. 与えられた四元数関係式から, $ji = -j(kk)i = -(jk)(ki) = -ij$などもしたがう.
+  このことから四元数共役について$\overline{pq} = \overline{q}\ \overline{p}$も確かめられる.
+\end{note}
+
+\begin{ans}
+  $f(e_i)f(e_j) + f(e_j)f(e_i) = 2\delta_{ij}$を満たすので,
+  これを$\mathbb{R}^4$上に線形に拡張すると,
+  線形写像$f: \mathbb{R}^4 \rightarrow \mathbb{H}(2)$は$f(v)^2 = -\langle v, v \rangle 1$を満たす.
+  したがって代数準同型$\mathrm{Cl}_{4, 0} \rightarrow \mathbb{H}(2)$がある.
+  $\mathbb{R}$ベクトル空間としての次元はいずれも$16$なので, この準同型が全射であることを確かめればよい.
+  全射であることについては,
+  $f(e_1)^4 = \begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{pmatrix}$,
+  $f(e_1)f(e_3)f(e_4) = \begin{pmatrix}
+    -1 & 0 \\
+    0 & 1
+  \end{pmatrix}$,
+  $f(e_3)f(e_2)f(e_4) = \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix}$
+  であることを見れば, $f(e_1), f(e_2), f(e_3), f(e_4)$から$\mathbb{H}(2)$が生成されることは明らかであろう.
+  (たとえば, $\begin{pmatrix}
+    0 & i \\
+    -i & 0
+  \end{pmatrix} = \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix}\begin{pmatrix}
+    -1 & 0 \\
+    0 & 1
+  \end{pmatrix}\begin{pmatrix}
+    i & 0 \\
+    0 & i
+  \end{pmatrix}$など.)
+\end{ans}
+
 \end{document}
